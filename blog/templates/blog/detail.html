@@ -1,42 +1,30 @@
-{% extends 'base2.html' %}
+{% extends "base.html" %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-            <div id="bd" class="wrp clear-fix">
-                <div id="main">
-                    <div id="detail-title">
-                        <ul id="single-nav">
-                            <li><a href="{% url 'blog:index' %}">首页</a></li>
-                            <li>&gt;</li>
-                            <li>
-                                <ul class="post-categories">
-                                    <li><a href="" title=""
-                                           rel="category">{{ article2.category.name }}</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>&gt;</li>
-                            <li class="title-active"><a href="{% url 'detail' article2.pk %}"
-                                                        rel="bookmark">{{ article2.title }}</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="post-1951"
-                         class="post-1951 post type-post status-publish format-standard hentry category-meida-report">
-                        <div class="post-hd">
-                            <h1 class="title">{{ article2.title }}</h1>
-                        </div>
-                        <div class="date-read">
-                            <i class="icon-date"></i><span
-                                class="date">{{ article2.last_modified_time|date:"Y年n月d日" }}</span>
-                        </div>
-                        <div class="post-bd">
-                            {{ article2.body |safe }}
-                        </div>
-                    </div>
+<div class="posts">
+        <section class="post">
+        <ul class="nav-list">
+                    <li class="nav-item">
+                        <a class="button-success pure-button" href="/">{{ article.category.name}}</a>
+                    </li>
+        </ul>
+            <header class="post-header">
+                
+                <h2 class="post-title"><a href="/">{{ article.title }}</a></h2>
+
+                    <p class="post-meta">
+                    
+                        Time:  <a class="post-author" href="#">{{ article.created_time }}</a> <a class="post-category post-category-js" href="#">{{ article.category }}</a>
+                    
+                    </p>
+            </header>
+
+                <div class="post-description">
+                    <p>
+                        {{ article.body }}
+                    </p>
                 </div>
-            </div>
-            {% include 'blog/comment.html' %}
-        </div>
-    </div>
+                <a class="pure-button" href="/">Read More >>> </a>
+        </section>
+
+</div><!-- /.blog-post -->
 {% endblock %}

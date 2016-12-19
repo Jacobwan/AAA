@@ -3,6 +3,7 @@ from blog import views
 
 urlpatterns = [
     url(r'^blog/$', views.IndexView.as_view(), name='home'),
+    url(r'^article/(?P<article_id>\d+)$', views.ArticleDetailView.as_view(), name='detail'),
 ]
 """
     url(r'^article/(?P<article_id>\d+)$', views.ArticleDetailView.as_view(), name='detail'),
